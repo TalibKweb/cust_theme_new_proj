@@ -1,0 +1,151 @@
+.introBanner {
+  aspect-ratio: 16 / 9;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom,#DCA86A 0%, #EBCDA9 58.17%, #FFFCF9 100%);
+  overflow: hidden;
+}
+
+@media (max-width: 575px) {
+  .introBanner {
+    height: 30vh;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 842.99px){
+  .introBanner {
+    height: 45vh;
+  }
+}
+
+
+
+.final-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* or a specific ratio with aspect-ratio */
+  object-fit: cover;
+  opacity: 0;
+  animation: revealImage 2s ease-in-out forwards;
+  animation-delay: 7s;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.final-image svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.n-container {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+@media (max-width: 575px) {
+  .n-container {
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 767px){
+  .n-container {
+      width: 180px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+  .n-container {
+      width: 200px;
+  }
+}
+
+
+.n-stroke {
+  stroke: white;
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 4650;
+  stroke-dashoffset: 4650;
+  animation: drawStroke 5s ease-in-out forwards,
+             smoothFill 2s ease-in-out forwards 5s;
+}
+
+.n-fill {
+  fill: white;
+  opacity: 0;
+  animation: fadeFill 2s ease-in-out forwards;
+  animation-delay: 5s;
+}
+
+
+/* .img-stroke {
+  stroke: var(--golden);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 12000;
+  stroke-dashoffset: 12000;
+  animation: drawStroke 3s ease-in-out forwards;
+  animation-play-state: paused;
+}
+
+section:hover .img-stroke {
+  animation-play-state: running;
+} */
+
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes smoothFill {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes fadeFill {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes revealImage {
+  to {
+    opacity: 1;
+  }
+}
+
+
+.cloud-path {
+  stroke: #A56417;
+  stroke-width: 1;
+  fill: none;
+  stroke-dashoffset: 2000;
+  animation:
+    drawCloud 3s ease-in-out forwards,
+    floatCloud 3s ease-in-out infinite;
+}
+
+  @keyframes drawCloud {
+  to {
+      stroke-dashoffset: 0;
+  }
+  }
+
+  @keyframes floatCloud {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(-20px); }
+    100% { transform: translateX(0); }
+  }
+
+
