@@ -6,12 +6,11 @@
             <!-- >>>>>>>>>>>>>>>>>>>>>>> Col 1 -->
             <div class="col-lg-3 col-md-6 col-12 footerCol pe-lg-5">
                 <div class="footerLogo">
-                    <img src="<?php echo get_template_directory_uri() ?>/images/icons/footerLogo.svg" alt="" class="img-fluid">
+                    <a href="<?php echo site_url(); ?>"><img src="<?php echo get_field('footer_logo', 'option'); ?>" alt="" class="img-fluid"></a>
                 </div>
                 <div class="hr-footer"></div>
                 <div class="footerDetails">
                     <div class="d-flex justify-content-between align-items-center">
-
                         <h6 class="mb-3"><?php echo get_field('contact_us_txt', 'option'); ?></h6>
                         <img src="<?php echo get_field('contact_us_icon', 'option'); ?>" class="img-fluid">
                     </div>
@@ -24,17 +23,14 @@
                     </a>
                 </div>
                 <div class="mt-3">
-
                     <ul class="d-flex socialIcons">
 
                         <?php
                         $contact_us_social_icons = get_field('contact_us_social_icons', 'option');
                         // echo 'contact_us_social_icons' . $contact_us_social_icons . "<br><br>";
                         foreach ($contact_us_social_icons as $contact_us_social_icon) {
-
                         ?>
                             <li><a href="<?php echo $contact_us_social_icon['cont_us_link'] ?>"><img src="<?php echo $contact_us_social_icon['cont_us_icon'] ?>"></a></li>
-
                         <?php
                         }
 
@@ -65,22 +61,11 @@
             <div class="col-lg-2 col-md-6 col-12 footerCol pe-lg-5">
                 <h5 class="mb-3"><?php echo get_field('crafted_elegance_title_text', 'option'); ?></h5>
                 <ul>
-                    <!-- <li><a href="notan-house.html">Notan House</a></li>
-                    <li><a href="96-Tagore.html">96 Tagore</a></li>
-                    <li><a href="notan-casa.html">Notan Casa</a></li>
-                    <li><a href="notan-tides.html">Notan Tides</a></li>
-                    <li><a href="notan-edge.html">Notan Edge</a></li> -->
-
-
                     <?php
                     $crafted_elegance_reps = get_field('crafted_elegance_rep', 'option');
                     foreach ($crafted_elegance_reps as $crafted_elegance_rep) {
-                        // echo "crafted_elegance_txt" . $crafted_elegance_rep['crafted_elegance_txt'] . "<br>";
-                        // echo "crafted_elegance_link" . $crafted_elegance_rep['crafted_elegance_link'] . "<br><br>";
-
                     ?>
                         <li><a href="<?php echo $crafted_elegance_rep['crafted_elegance_link'] ?> "><?php echo $crafted_elegance_rep['crafted_elegance_txt'] ?> </a></li>
-
                     <?php
                     }
                     ?>
@@ -109,7 +94,9 @@
 
 
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start py-1 copyright">
-            <p>© <script>document.write(new Date().getFullYear())</script> Notandas Realty. All Rights Reserved.</p>
+            <p>© <script>
+                    document.write(new Date().getFullYear())
+                </script> Notandas Realty. All Rights Reserved.</p>
             <a href="https://kwebmaker.com/" target="_blank">Kwebmaker</a>
         </div>
     </div>

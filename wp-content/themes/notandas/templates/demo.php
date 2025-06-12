@@ -167,3 +167,50 @@ get_header();
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, aspernatur. Et sed quae at maiores optio consequatur omnis impedit excepturi culpa soluta ipsam eligendi atque earum illo ad deserunt provident id, nobis voluptatem! Quasi amet minima voluptate quidem earum quae cupiditate enim, corrupti deserunt id consequatur laboriosam aut reiciendis, repudiandae alias ducimus ea? Facere quaerat at nesciunt id distinctio voluptates, eos doloremque ipsum laudantium, pariatur neque perferendis dignissimos odio nulla, ad necessitatibus voluptatem! Iure velit sit quae minus? Suscipit nihil totam laudantium tenetur expedita, animi unde accusamus vel ipsum esse sed. Autem quos dolor, minima culpa vitae odit eius dicta deserunt beatae, sit porro explicabo, hic corrupti! Quisquam doloribus suscipit autem perspiciatis, deleniti aliquid dolor porro facere illum hic dignissimos a eum tempore reprehenderit, voluptate impedit ullam fugit. Illum, cum perferendis. Unde praesentium repudiandae ut consequuntur perspiciatis voluptatum beatae commodi, numquam fuga sit veniam quam similique impedit accusamus optio iste, ab quibusdam! Minus, perspiciatis eum. Facilis illo dolores porro repellendus amet ratione, ipsum necessitatibus ducimus perspiciatis accusamus, ut provident officiis eum voluptas commodi! A qui nesciunt perferendis accusamus sapiente, consectetur suscipit aut corrupti accusantium reprehenderit necessitatibus nam voluptatibus, tempore nobis debitis molestias nulla quam in doloribus ratione cupiditate. Quas voluptatibus sequi quibusdam perspiciatis, eum qui esse consequuntur, vero unde assumenda reprehenderit inventore dolore obcaecati vel laudantium. Repudiandae, ratione suscipit sequi repellat, laboriosam quia voluptatibus, doloremque provident maiores quasi deserunt. Natus mollitia cumque culpa libero, aut, quam voluptatem harum beatae tenetur molestias a dolores eligendi quaerat! Assumenda, adipisci voluptate, maiores exercitationem, labore porro rerum ut blanditiis doloribus fugiat laboriosam ea. Nesciunt nostrum deserunt nulla harum eos aperiam dolorum quae ducimus. Rerum molestiae repudiandae nisi nemo, unde nostrum quas nulla sapiente eaque. Eos, laudantium corporis! Neque soluta provident nesciunt recusandae, ducimus perferendis deserunt labore animi in! Natus commodi ea sit laboriosam magni nemo quia quidem, officiis quibusdam temporibus blanditiis! Laboriosam, magnam animi voluptas quis maiores illo quibusdam, expedita explicabo, iure et repellat veritatis id ut facere iusto soluta? Rem odit accusantium, debitis delectus quam deserunt ducimus, tempore natus sit in impedit, maxime eos neque incidunt pariatur porro! Ratione vero quasi quisquam, quod voluptas quo ducimus maxime nisi deleniti, ullam, nobis delectus debitis exercitationem excepturi tenetur aut? Voluptatum, tempora debitis nisi ratione enim tempore dolorum dolor praesentium quasi facere quisquam suscipit ea ipsa iusto, unde cupiditate in repellat itaque hic blanditiis? Earum repellat distinctio rem voluptatibus ipsam molestias tempora eum eveniet excepturi temporibus.
 
+
+
+
+
+
+
+
+
+<?php
+
+// function register_projects_custom_post_type() {
+//     $labels = [
+//         'name' => 'Projects', 'Post type general name', 'textdomain',
+//         'singular_name' => 'Project', 'Post type singular name', 'textdomain',
+//         'menu_name' => 'Projects', 'Admin Menu text', 'textdomain',
+//         'name_admin_bar' => 'Project', 'Add New on Toolbar', 'textdomain',
+//         'add_new' => 'Add New', 'textdomain',
+//         'add_new_item' => 'Add New Project', 'textdomain',
+//         'new_item' => 'New Project', 'textdomain',
+//         'edit_item' => 'Edit Project', 'textdomain',
+//         'view_item' => 'View Project', 'textdomain',
+//         'all_items' => 'All Projects', 'textdomain',
+//         'search_items' => 'Search Projects', 'textdomain',
+//         'not_found' => 'No projects found!', 'textdomain',
+//         'not_found_in_trash' => 'No projects found in Trash.', 'textdomain',
+//     ];
+
+//     $projects_custom_post_arg = [
+//         'labels'             => $labels,
+//         'public'             => true,
+//         'has_archive'        => true,
+//         'rewrite'            => ['slug' => 'projects'],
+//         'show_in_rest'       => true, // enable Gutenberg editor and REST API
+//         'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
+//         'menu_position'      => 5,
+//         'menu_icon'          => 'dashicons-portfolio',
+//     ];
+
+//     register_post_type('book', $projects_custom_post_arg);
+// }
+// add_action('init', 'register_projects_custom_post_type');
+
+
+?>
+
+
+

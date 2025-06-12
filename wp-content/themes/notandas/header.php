@@ -11,6 +11,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/animation.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/innerpage.css">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <header>
         <nav class="navbar bg-transparent mx-3 my-2 ">
             <div class="container-fluid">
-                <a class="logo" href="index.html">
+                <a class="logo" href="<?php echo site_url(); ?>">
                     <img src="<?php echo get_template_directory_uri() ?>/images/notandasLogo.svg" class="img-fluid" />
                 </a>
                 <button class="navbar-toggler menu-btn ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -62,6 +63,25 @@
                                 <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT US</a></li>
                             </ul>
                         </div>
+
+
+
+                        <!-- >>>>>>>>>>>>> For Dynamic Field!  -->
+                        <div class="offcanvas-body p-lg-0 px-lg-5">
+                            <?php
+                            wp_nav_menu([
+                                'theme_location' => 'primary',
+                                'depth' => 2,
+                                'container' => false,
+                                'menu_class' => 'navbar-nav menu-list',
+                            ]);
+                            ?>
+                        </div>
+
+
+
+
+
 
                         <div class="flex-grow-1"></div>
                     </div>
