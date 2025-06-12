@@ -1013,7 +1013,6 @@ get_header();
             $crafted_elegance_rows = get_field('crafted_elegance_rows');
 
             foreach($crafted_elegance_rows as $crafted_elegance_row) {
-
             ?>
 
             <div class="row align-items-center py-3 projectRow" >
@@ -1037,7 +1036,6 @@ get_header();
             }
             ?>
 
-
         </div>
     </section>
 
@@ -1050,6 +1048,8 @@ get_header();
     </section>
 
 
+    <!-- >>>>>>>>>>>>>>>>> Inside A Post Type -->
+    <!-- >>>>>>>>>>>>>>>>> Testimonial need to be in A Post Type -->
     <!-- Testimonials -->
     <section class="py-5 position-relative">
         <div class="container">
@@ -1060,17 +1060,24 @@ get_header();
                 <div class="swiper-wrapper">
 
                     <?php
-                    if(have_rows('all_testimonials')):
-                        while(have_rows('all_testimonials')): the_row();
+                    $testimonial_posts = [
+                        'post_type' => 'testimonials',
+                        'posts_per_page' => 10,
+                    ];
+
+                    $testimonial_fetch_query = new WP_Query($testimonial_posts);
+
+                    if($testimonial_fetch_query->have_posts()):
+                        while($testimonial_fetch_query->have_posts()): $testimonial_fetch_query->the_post();
                     ?>
 
                     <!-- Swiper slides -->
                     <div class="swiper-slide">
                         <div class="d-lg-flex">
                             <div class="imageText col-lg-2 text-center">
-                                <img src="<?php echo get_sub_field('client_img'); ?>" alt="" class="img-fluid mb-3">     
-                                <h6><?php echo get_sub_field('client_name'); ?></h6>
-                                <p><?php echo get_sub_field('client_addr'); ?></p>                  
+                                <img src="<?php echo the_post_thumbnail_url() ?>" alt="" class="img-fluid mb-3">     
+                                <h6><?php echo the_title() ?></h6>
+                                <p><?php echo get_field('client_address') ?></p>
                             </div>
                             <div class="testiBtn d-none d-lg-block mx-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="42" height="148" viewBox="0 0 42 148" fill="none">
@@ -1080,13 +1087,18 @@ get_header();
                                 </svg>
                             </div>
                             <div class="col-lg-8 content">
-                                <p><?php echo get_sub_field('testimonial_desc'); ?></p>
+                                <p><?php echo the_excerpt() ?></p>
                             </div>
                         </div>
                     </div>
 
-                    <?php 
+                    <?php
                         endwhile;
+                        wp_reset_postdata();
+                    else:
+                    ?>
+                    <p>No Testimonial Found!</p>
+                    <?php 
                     endif;
                     ?>
 
@@ -1118,7 +1130,7 @@ get_header();
                     <h2><?php echo get_field('get_in_touch_title') ?></h2>
                 </div>
                 <h3 data-aos="fade-up" data-aos-duration="3000"><?php echo get_field('get_in_touch_h3_title') ?></h3>
-                <a href="contact.html" class="cta" data-aos="fade-up" data-aos-duration="3000"><?php echo get_field('get_in_touch_btn_txt') ?></a>
+                <a href="<?php echo get_field('get_in_touch_btn_link') ?>" class="cta" data-aos="fade-up" data-aos-duration="3000"><?php echo get_field('get_in_touch_btn_txt') ?></a>
             </div>
         </div>
     </section>
@@ -1135,60 +1147,67 @@ get_header();
     <!-- Blogs -->
     <section class="py-5 position-relative blogs">
         <div class="container">
-        <div class="heading text-center text-uppercase mb-5">
-            <h2>Blogs</h2>
-        </div>
-        <div class="swiper blogSwiper">
-            <div class="swiper-wrapper">
-            <!-- Swiper slide -->
-            <div class="swiper-slide">
-                <div class="blogCard">
-                <div class="blogImage mb-3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/blogimage.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="blogContent text-center col-md-9 mx-auto">
-                    <p>Perched on some of the most elite roads in the world, Notandas  expansive properties are in constant dialogue with luxury. </p>
-                </div>
-                </div>
+            <div class="heading text-center text-uppercase mb-5">
+                <h2>Blogs</h2>
             </div>
+            <div class="swiper blogSwiper">
+                <div class="swiper-wrapper">
 
-            <!-- Swiper slide -->
-            <div class="swiper-slide">
-                <div class="blogCard">
-                <div class="blogImage mb-3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/blogimage.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="blogContent text-center col-md-9 mx-auto">
-                    <p>Smart buildings set up the best conditions for people to work, meet and get inspired by the vivacity of other purposeful professionals.</p>
-                </div>
-                </div>
-            </div>
+                    <?php 
+                    $blog_post = [
+                        'post_type' => 'post',
+                        'post_per_page' => -1,
+                        'order_by' => 'date',
+                        'order' => 'ASC'
+                    ];
 
-            <!-- Swiper slide -->
-            <div class="swiper-slide">
-                <div class="blogCard">
-                <div class="blogImage mb-3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/blogimage.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="blogContent text-center col-md-9 mx-auto">
-                    <p>Perched on some of the most elite roads in the world, Notandas  expansive properties are in constant dialogue with luxury. </p>
-                </div>
+                    $post_fetch_query = new WP_Query($blog_post);
+
+                    if($post_fetch_query->have_posts()): 
+                        while($post_fetch_query->have_posts()): $post_fetch_query->the_post();
+                    ?>
+
+                    <!-- Swiper slide -->
+                    <div class="swiper-slide">
+                        <div class="blogCard">
+                            <div class="blogImage mb-3">
+                                <!-- >>>>>>>>> Method 1 -->
+                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="img-fluid">
+                                <!-- >>>>>>>>> Method 2 -->
+                                <?php
+                                // echo the_post_thumbnail('full', ['class' => 'img-fluid']); 
+                                ?>
+                            </div>
+                            <div class="blogContent text-center col-md-9 mx-auto">
+                               <a href="<?php echo get_permalink(); ?>"><p><?php echo the_title(); ?></p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php 
+                        endwhile;
+                    else:
+                    ?>
+
+                    <p>No Post Found!</p>
+
+                    <?php
+                    endif;
+                    ?>
+
                 </div>
             </div>
+            <div class="mx-auto mt-3">
+                <a href="blog.html" class="cta">Read On</a>
             </div>
-        </div>
-        <div class="mx-auto mt-3">
-            <a href="blog.html" class="cta">Read On</a>
-        </div>
         </div>
 
         <!-- Navigation Buttons OUTSIDE container -->
         <div class="swiperArwGolden">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </section>
-
 
     <!-- Line -->
     <section>
@@ -1196,44 +1215,5 @@ get_header();
         <div class="line"></div>
         </div>
     </section>
-
-    <h2>Posts</h2>
-    
-    <?php 
-    $args = [
-        'post_type' => 'post',
-        'post_per_page' => -1,
-        'order_by' => 'date',
-        'order' => 'ASC'
-    ];
-
-    $cust_query = new WP_Query($args);
-    if($cust_query->have_posts()): 
-        while($cust_query->have_posts()): $cust_query->the_post();
-
-    ?>
-
-    <ul>
-        <li><?php echo the_title(); ?></li>
-        <li><?php echo the_permalink() ?></li>
-        <li><?php echo the_post_thumbnail() ?></li>
-        <li><br><br></li>
-    </ul>
-
-    <?php
-        endwhile;
-        wp_reset_postdata(); //important
-    else:
-    ?>
-    <h3>No Post Found!</h3>
-
-    <?php 
-    endif;
-    ?>
-   
-
-
-    
-
 
 <?php get_footer(); ?>

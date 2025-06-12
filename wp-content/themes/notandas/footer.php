@@ -109,7 +109,7 @@
 
 
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start py-1 copyright">
-            <p>© 2025 Notandas Realty. All Rights Reserved.</p>
+            <p>© <script>document.write(new Date().getFullYear())</script> Notandas Realty. All Rights Reserved.</p>
             <a href="https://kwebmaker.com/" target="_blank">Kwebmaker</a>
         </div>
     </div>
