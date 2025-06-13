@@ -4,6 +4,9 @@
 get_header();
 ?>
 
+
+<!-- >>>>>>>>>>>>>>>>>>>>>> Fetching Default posts as for Blogs (its Detail Page) -->
+
 <div class="container">
 
     <h2 class="hello" style="margin-top: 70px;">Blog Posts:</h2>

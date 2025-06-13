@@ -49,7 +49,7 @@ function register_projects_custom_post_type() {
         'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-portfolio',
-        'taxonomies'         => ['category'],
+        // 'taxonomies'         => ['category'],
     ];
 
     register_post_type('project', $args);
