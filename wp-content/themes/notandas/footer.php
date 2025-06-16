@@ -83,9 +83,9 @@
                     <div class="py-2"><button class="cta">Submit</button></div>
                 </form> -->
 
-                <?php
-                echo get_field('lets_connect_form', 'option');
-                ?>
+                <div class="contactForm">
+                    <?php echo do_shortcode('[contact-form-7 id="444f4e7" title="Contact form Footer"]') ?>
+                </div>
 
             </div>
         </div>

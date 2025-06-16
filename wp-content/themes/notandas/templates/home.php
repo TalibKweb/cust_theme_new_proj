@@ -1198,7 +1198,7 @@ get_header();
                 </div>
             </div>
             <div class="mx-auto mt-3">
-                <a href="blog.html" class="cta">Read On</a>
+                <a href="/blogs/" class="cta">Read On</a>
             </div>
         </div>
 

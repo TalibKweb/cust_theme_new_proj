@@ -1,0 +1,29 @@
+
+🧠 Template hierarchy:
+
+
+If viewing a page:
+
+page-{slug}.php
+→ page-{id}.php
+→ page.php
+→ singular.php
+→ index.php
+
+
+If viewing a single post:
+
+single-post.php
+→ single.php
+→ singular.php
+→ index.php
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+page.php is for Pages only.
+
+single.php is for Posts (and custom post types if single-{type}.php is not defined).
+
+singular.php is a universal fallback for any single item (page, post, or CPT).
