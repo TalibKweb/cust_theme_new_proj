@@ -14,21 +14,6 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/innerpage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-        .search_icon_header {
-            width: 20%;
-            display: flex;
-            justify-content: flex-end;
-            cursor: pointer;
-        }
-
-
-        .search_icon_header i {
-            font-size: 22px;
-            color: black;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -36,9 +21,17 @@
     <header>
         <nav class="navbar bg-transparent mx-3 my-2 ">
             <div class="container-fluid">
-                <a href="#" class="search_icon_header">
-                    <i class="fas fa-search"></i>
-                </a>
+                <!-- >>>>>>>>> Search Icon -->
+                <div class="search_icon_header">
+                    <a href="#" class="main_search_icon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+
+                <div class="search_form_cont hide ">
+                    <?php get_search_form() ?>
+                </div>
+
                 <a class="logo" href="<?php echo site_url(); ?>">
                     <img src="<?php echo get_template_directory_uri() ?>/images/notandasLogo.svg" class="img-fluid" />
                 </a>
@@ -84,8 +77,6 @@
                             </ul>
                         </div>
 
-
-
                         <!-- >>>>>>>>>>>>> For Dynamic Field!  -->
                         <div class="offcanvas-body p-lg-0 px-lg-5">
                             <?php
@@ -97,11 +88,6 @@
                             ]);
                             ?>
                         </div>
-
-
-
-
-
 
                         <div class="flex-grow-1"></div>
                     </div>

@@ -67,7 +67,6 @@ get_header();
                 while ($blog_fetch_query->have_posts()): $blog_fetch_query->the_post();
 
             ?>
-
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="blogImg">
 
@@ -95,7 +94,6 @@ get_header();
                         </div>
                     </div>
 
-
                 <?php
                 endwhile;
                 wp_reset_postdata();
@@ -105,7 +103,6 @@ get_header();
             <?php
             endif;
             ?>
-
 
         </div>
     </div>
