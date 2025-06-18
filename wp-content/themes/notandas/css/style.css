@@ -78,6 +78,133 @@ p {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main_menu>li.menu-item a {
+  font-family: Poppins;
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #DCA86A;
+  padding: 0 0 16px;
+  display: block;
+}
+
+
+.main_menu ul.sub-menu .menu-item a {
+  font-family: Poppins;
+  font-size: 15px;
+  line-height: 19px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white;
+}
+
+.main_menu .menu-item {
+  position: relative;
+}
+
+/* 
+.main_menu .menu-item.menu-item-has-children a::after {
+  content: '+';
+  font-size: 19px;
+  line-height: 24px;
+  color: #DCA86A;
+}
+ */
+
+
+
+
+
+/* .menu-item.menu-item-has-children */
+
+.main_menu .menu-item .toggle_me {
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.main_menu .menu-item .toggle_me {
+  font-size: 46px;
+  font-weight: 300;
+  color: #DCA86A;
+  transition: .35s all ease-in-out;
+}
+
+
+.main_menu ul.sub-menu {
+  max-height: 0;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  /* background: bisque; */
+  /* top: -80px; */
+  opacity: 0.5;
+  pointer-events: none;
+  transition: .35s all ease-in-out;
+}
+
+
+
+
+
+.main_menu ul.sub-menu.show_sub_menu {
+  max-height: 500px;
+
+  opacity: 1;
+  /* top: 0; */
+  pointer-events: all;
+  transition: .35s all ease-in-out;
+}
+
+
+
+/* .menu-item.menu-item-has-children */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .offcanvas {
   transform: translateX(100%);
   transition: all 0.6s ease-in-out;

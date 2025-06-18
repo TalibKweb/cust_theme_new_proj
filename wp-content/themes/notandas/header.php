@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/innerpage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+
+
+
+
+
+
 </head>
 
 <body>
@@ -42,7 +49,7 @@
                         <div class="offcanvas-header border-0 position-absolute top-0 end-0 m-lg-3 m-1">
                             <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                        <div class="offcanvas-body p-lg-0 px-lg-5">
+                        <!-- <div class="offcanvas-body p-lg-0 px-lg-5">
                             <ul class="navbar-nav menu-list">
                                 <li class="nav-item has-submenu">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -75,7 +82,7 @@
                                 <li class="nav-item"><a class="nav-link" href="careers.html">CAREERS</a></li>
                                 <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT US</a></li>
                             </ul>
-                        </div>
+                        </div> -->
 
                         <!-- >>>>>>>>>>>>> For Dynamic Field!  -->
                         <div class="offcanvas-body p-lg-0 px-lg-5">
@@ -84,7 +91,7 @@
                                 'theme_location' => 'primary',
                                 'depth' => 2,
                                 'container' => false,
-                                'menu_class' => 'navbar-nav menu-list',
+                                'menu_class' => 'navbar-nav menu-list main_menu',
                             ]);
                             ?>
                         </div>

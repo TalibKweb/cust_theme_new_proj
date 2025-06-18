@@ -7,6 +7,20 @@ get_header();
 ?>
 
 
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pagination .page-numbers {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+</style>
+
 
 <!-- innerBanner -->
 <section class="homeBanner">
@@ -19,6 +33,7 @@ get_header();
     </div>
 </section>
 
+
 <!-- Anchorlink Section -->
 <section class="linkSection d-none d-lg-block">
     <div class="container">
@@ -30,42 +45,61 @@ get_header();
             </ul>
             <div class="d-flex">
                 <div class="col-auto me-4">
-                    <select class="form-select" id="sortSelect" onchange="sortItems(this.value)">
-                        <option value="Filter">Filter</option>
-                        <option value="name">Market Trends</option>
-                        <option value="date">Home Tips</option>
-                        <option value="date">News</option>
-                    </select>
+
+                    <form method="GET">
+                        <select name="select-category" class="form-select" id="sortSelect" onchange="this.form.submit() ">
+                            <option value="">Filter</option>
+                            <?php
+                            $categories_to_filt = get_categories();
+                            foreach ($categories_to_filt as $category):
+                            ?>
+                                <option
+                                    value="<?php echo $category->term_id ?>"
+                                    <?php
+                                    if ($_GET['select-category'] == $category->term_id) echo 'selected="selected"' ?>>
+                                    <?php echo $category->name ?></option>
+                            <?php
+                            endforeach;
+                            ?>
+                        </select>
+                    </form>
+
                 </div>
                 <a href="/contact-us/" class="cta">Reach out</a>
             </div>
-
 
         </div>
     </div>
 </section>
 
 
-<!-- Listing page -->
+<!-- Listing page Content -->
 <section class="pt-5" id="blog">
     <div class="container">
         <div class="row">
 
             <?php
-
+            // $get_cat_for_filter = get_query_var('select-category'); // can be only applicable for built in wp funcs | else need to register for ourselve one
+            $paged = get_query_var('paged') ? get_query_var('paged') : 1;
             $blog_posts_arr = [
                 'post_type' => 'post',
-                'posts_per_page' => -1,
+                // 'posts_per_page' => -1, // for Infinity
+                'posts_per_page' => 6,
                 // 'category__in' => 'News',
                 'order_by' => 'date',
-                'order' =>  'ASC'
+                'order' =>  'ASC',
+                // 'paged' => 1 // can use no.s for debugging
+                'paged' => $paged,
+                // 'category__in' => [10], // need to pass an array
+                // 'category__in' => $categories_to_filt,
             ];
+
+            if($_GET['select-category']) $blog_posts_arr['category__in'] = [$_GET['select-category']];
 
             $blog_fetch_query = new WP_Query($blog_posts_arr);
 
             if ($blog_fetch_query->have_posts()):
                 while ($blog_fetch_query->have_posts()): $blog_fetch_query->the_post();
-
             ?>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="blogImg">
@@ -105,6 +139,21 @@ get_header();
             ?>
 
         </div>
+
+
+        <?php if ($blog_fetch_query->max_num_pages > 1):  ?>
+            <div class="pagination">
+                <?php
+                echo paginate_links([
+                    'total' => $blog_fetch_query->max_num_pages,
+                    'current' => $paged,
+                    'prev_text' => '<i class="fa-solid fa-chevron-left"></i>',
+                    'next_text' => '<i class="fa-solid fa-chevron-right"></i>',
+                    'type' => 'list'
+                ])
+                ?>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -130,19 +179,6 @@ get_header();
             <?php endif; ?>
 
         </div>
-
-        <!-- <div class="subscribeForm">
-            <form class="subscribe" action="">
-                <div class="row d-flex align-items-center justify-content-center col-lg-7 mx-auto">
-                    <div class="col-md-10">
-                        <input type="email" placeholder="Enter your email" />
-                    </div>
-                    <div class="col-md-2 text-left">
-                        <button class="cta">Submit</button>
-                    </div>
-                </div>
-            </form>
-        </div> -->
 
         <div class="subscribeForm">
             <div class="subscribe">
