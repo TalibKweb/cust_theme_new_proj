@@ -292,7 +292,8 @@ get_header();
     </div>
 </section>
 
-
+<?php echo get_template_directory_uri(); ?>
+hello world
 
 <?php
 get_footer();

@@ -102,9 +102,15 @@
     </div>
 </footer>
 
+
+
+<!-- >>>>>>>>>>>>> Script LENIS -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
 <script src="<?php echo get_template_directory_uri() ?>/js/jquery-3.7.1.min.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/script.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/additional_script.js"></script>
+

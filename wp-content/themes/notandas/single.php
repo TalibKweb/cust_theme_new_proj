@@ -146,9 +146,7 @@ endif;
                             if (!empty($categories)):
                                 foreach ($categories as $cat):
                             ?>
-
                                     <span class="badge-top-right"><?php echo esc_html($cat->name) ?></span>
-
                             <?php
                                 endforeach;
                             endif;

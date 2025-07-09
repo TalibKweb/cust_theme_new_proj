@@ -1,7 +1,7 @@
 
 // >>>>>>>>>>>>>>>>> Document Loaded Event
 document.addEventListener('DOMContentLoaded', () => {
-    // console.log('Additional Script file Connected:');
+    console.log('Additional Script file Connected:');
     let cf7_def_footer_class = document.querySelector('footer .contactForm');
     let txt_area_insd_form = cf7_def_footer_class.querySelector('textarea');
     let search_form_cont = document.querySelector('.search_form_cont');
@@ -77,3 +77,32 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 // >>>>>>>>>>> Write everything inside it,
 // >>>>>>>>>>>>>>>>> Document Loaded Event
+
+
+
+
+
+
+
+// >>>>>>>>>>>>>>>>>>> Initialize LENIS
+
+console.log('Additional Script JS Connected!')
+
+// Initialize Lenis
+const lenis = new Lenis();
+
+// Listen for the scroll event and log the event data
+lenis.on('scroll', (e) => {
+  console.log(e);
+});
+
+// Use requestAnimationFrame to continuously update the scroll
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+// >>>>>>>>>>>>>>>>>>> ENDS Initialize LENIS
+
